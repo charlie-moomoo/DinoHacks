@@ -2,7 +2,7 @@
 if(window.DinoHacksEnabled) return console.log("[DinoHacks] 請勿多次貼上程式碼！")
 document.querySelector("div#main-frame-error").insertAdjacentHTML('beforeend', `
 <fieldset id="hacks" style="position:fixed;width:600px;">
-    <legend>DinoHacks v2.1 外掛列表</legend>
+    <legend>DinoHacks v2.1.1 外掛列表</legend>
 
     <div>
       <input type="radio" id="noclip" name="noclip">
@@ -62,10 +62,10 @@ setInterval(()=>{
     if(!document.querySelector(`#speed`).checked&&!document.querySelector(`#lightspeed`))  runnerInstance.setSpeed(6)
     if(document.querySelector(`#lightspeed`).checked)  runnerInstance.setSpeed(10000)
     if(document.querySelector(`#noenemy`).checked)  runnerInstance.horizon.obstacles=[]
-    if(document.querySelector(`#autojump`).checked&&started)  document.dispatchEvent(new KeyboardEvent('keydown', { 'keyCode': 32, 'which': 32 }))
+    if(document.querySelector(`#autojump`).checked&&started)  { if (runnerInstance.horizon.obstacles[0]?.xPos <= 60 && runnerInstance.horizon.obstacles[0]?.yPos > 70) document.dispatchEvent(new KeyboardEvent('keydown', { 'keyCode': 32, 'which': 32 })) }
     if(document.querySelector(`#night`).checked)  runnerInstance.isDarkMode=true
 })
-console.log("[DinoHacks] v2.1 by CharlieMoomoo")
+console.log("[DinoHacks] v2.1.1 by CharlieMoomoo")
 console.log("[DinoHacks] 外掛已啟用！")
 window.DinoHacksEnabled=true
 })()
