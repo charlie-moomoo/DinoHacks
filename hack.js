@@ -2,7 +2,7 @@
 if(window.DinoHacksEnabled) return console.log("[DinoHacks] 請勿多次貼上程式碼！")
 document.querySelector("div#main-frame-error").insertAdjacentHTML('beforeend', `
 <fieldset id="hacks" style="position:fixed;width:600px;">
-    <legend>DinoHacks v2.0 外掛列表</legend>
+    <legend>DinoHacks v2.1 外掛列表</legend>
 
     <div>
       <input type="radio" id="noclip" name="noclip">
@@ -51,21 +51,21 @@ document.querySelector("#buttons").remove()
 document.querySelector("button#all").style.marginLeft="3px"
 var yesclip = Runner.prototype.gameOver
 setInterval(()=>{
-    var started = Runner.instance_.tRex.status!="WAITING"
-    var score = Runner.instance_.distanceRan
+    var started = runnerInstance.tRex.status!=4
+    var score = runnerInstance.distanceRan
     if(started) menu.style.bottom="10px"
-    if(document.querySelector(`#noclip`).checked)  Runner.prototype.gameOver=()=>{}
-    if(!document.querySelector(`#noclip`).checked)  Runner.prototype.gameOver=yesclip
-    if(document.querySelector(`#fly`).checked)  Runner.instance_.tRex.groundYPos=-10
-    if(!document.querySelector(`#fly`).checked)  Runner.instance_.tRex.groundYPos=93
-    if(document.querySelector(`#speed`).checked)  Runner.instance_.setSpeed(1000)
-    if(!document.querySelector(`#speed`).checked&&!document.querySelector(`#lightspeed`))  Runner.instance_.setSpeed(6)
-    if(document.querySelector(`#lightspeed`).checked)  Runner.instance_.setSpeed(10000)
-    if(document.querySelector(`#noenemy`).checked)  Runner.instance_.horizon.obstacles=[]
+    if(document.querySelector(`#noclip`).checked)  runnerInstance.gameOver=()=>{}
+    if(!document.querySelector(`#noclip`).checked)  runnerInstance.gameOver=yesclip
+    if(document.querySelector(`#fly`).checked)  runnerInstance.tRex.groundYPos=-10
+    if(!document.querySelector(`#fly`).checked)  runnerInstance.tRex.groundYPos=93
+    if(document.querySelector(`#speed`).checked)  runnerInstance.setSpeed(1000)
+    if(!document.querySelector(`#speed`).checked&&!document.querySelector(`#lightspeed`))  runnerInstance.setSpeed(6)
+    if(document.querySelector(`#lightspeed`).checked)  runnerInstance.setSpeed(10000)
+    if(document.querySelector(`#noenemy`).checked)  runnerInstance.horizon.obstacles=[]
     if(document.querySelector(`#autojump`).checked&&started)  document.dispatchEvent(new KeyboardEvent('keydown', { 'keyCode': 32, 'which': 32 }))
-    if(document.querySelector(`#night`).checked)  Runner.instance_.isDarkMode=true
+    if(document.querySelector(`#night`).checked)  runnerInstance.isDarkMode=true
 })
-console.log("[DinoHacks] v2.0 by CharlieMoomoo")
+console.log("[DinoHacks] v2.1 by CharlieMoomoo")
 console.log("[DinoHacks] 外掛已啟用！")
 window.DinoHacksEnabled=true
 })()
